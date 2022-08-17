@@ -211,7 +211,8 @@ static const char *dmenucmd[] = {
 	NULL
 };
 static const char *termcmd[]  = { "alacritty", NULL };
-
+static const char *brwcmd[] = { "google-chrome-stable", NULL };
+static const char *pdfcmd[] = { "zathura", NULL };
 static const char *upvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *dovol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *muvol[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
@@ -223,35 +224,28 @@ static Key keys[] = {
   { 0,                  XF86XK_AudioMute,        spawn,                  {.v = muvol } },
 	{ MODKEY,                       XK_Print,      spawn,                  SHCMD("maim -su -m 10 | xclip -se c -t image/png") },
 	{ MODKEY|ShiftMask,             XK_Print,      spawn,                  SHCMD("maim -su -m 10 $HOME/Images/Captures/$(date +%s).png") },
-	{ MODKEY|ControlMask,           XK_p,          spawn,                  SHCMD("nsxiv -t $HOME/Images/Wallpapers") },
-	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
-	{ MODKEY,                       XK_b,          togglebar,              {0} },
+	{ MODKEY|ControlMask,           XK_w,          spawn,                  SHCMD("nsxiv -t $HOME/Images/Wallpapers") },
+	{ MODKEY,                       XK_space,      spawn,                  {.v = dmenucmd } },
+	{ MODKEY,                       XK_Return,     spawn,                  {.v = termcmd } },
+	{ MODKEY,                       XK_r,          spawn,                  {.v = brwcmd } },
+	{ MODKEY,                       XK_v,          spawn,                  {.v = pdfcmd } },
+	{ MODKEY,                       XK_f,          togglebar,              {0} },
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
-	{ MODKEY,                       XK_i,          incnmaster,             {.i = +1 } },
-	{ MODKEY,                       XK_d,          incnmaster,             {.i = -1 } },
-	{ MODKEY,                       XK_h,          setmfact,               {.f = -0.05} },
-	{ MODKEY,                       XK_l,          setmfact,               {.f = +0.05} },
-	{ MODKEY,                       XK_Return,     zoom,                   {0} },
-	{ MODKEY,                       XK_Tab,        view,                   {0} },
-	{ MODKEY|ControlMask,           XK_z,          showhideclient,         {0} },
-	{ MODKEY|ShiftMask,             XK_c,          killclient,             {0} },
-	{ MODKEY|ShiftMask,             XK_q,          quit,                   {0} },
+	{ MODKEY,                       XK_comma,      setmfact,               {.f = -0.05} },
+	{ MODKEY,                       XK_period,     setmfact,               {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_Return,     zoom,                   {0} },
+	{ MODKEY|ShiftMask,             XK_w,          killclient,             {0} },
+	{ MODKEY|ControlMask,           XK_o,          quit,                   {0} },
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
+	{ MODKEY,                       XK_s,          setlayout,              {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
-	{ MODKEY,                       XK_grave,      setlayout,              {0} },
-	{ MODKEY|ShiftMask,             XK_grave,      togglefloating,         {0} },
-	{ MODKEY,                       XK_space,      togglescratch,          {.ui = 0 } },
-	{ MODKEY|ControlMask,           XK_space,      setscratch,             {.ui = 0 } },
-	{ MODKEY|ShiftMask,             XK_space,      removescratch,          {.ui = 0 } },
+	{ MODKEY|ShiftMask,             XK_space,      togglefloating,         {0} },
+	{ MODKEY,                       XK_p,          togglescratch,          {.ui = 0 } },
+	{ MODKEY|ControlMask,           XK_p,          setscratch,             {.ui = 0 } },
+	{ MODKEY|ShiftMask,             XK_p,          removescratch,          {.ui = 0 } },
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~SPTAGMASK } },
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~SPTAGMASK } },
-	{ MODKEY,                       XK_comma,      focusmon,               {.i = -1 } },
-	{ MODKEY,                       XK_period,     focusmon,               {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
 	TAGKEYS(                        XK_1,                                  0)
 	TAGKEYS(                        XK_2,                                  1)
 	TAGKEYS(                        XK_3,                                  2)
