@@ -27,7 +27,7 @@ static char normfloatcolor[]             = "#6c7086";
 
 static char selfgcolor[]                 = "#cdd6f4";
 static char selbgcolor[]                 = "#313244";
-static char selbordercolor[]             = "#cdd6f4";
+static char selbordercolor[]             = "#1e1e2e";
 
 static char titlenormfgcolor[]           = "#cdd6f4";
 static char titlenormbgcolor[]           = "#1e1e2e";
