@@ -2,7 +2,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx       = 1;   /* border pixel of windows */
+static const unsigned int borderpx       = 2;   /* border pixel of windows */
 static const unsigned int snap           = 32;  /* snap pixel */
 static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
@@ -15,8 +15,8 @@ static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
-static const char *fonts[]               = { "Noto Sans:size=12" };
-static const char dmenufont[]            = "Noto Sans:size=12";
+static const char *fonts[]               = { "Noto Sans:size=13" };
+static const char dmenufont[]            = "Noto Sans:size=13";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -27,7 +27,7 @@ static char normfloatcolor[]             = "#6c7086";
 
 static char selfgcolor[]                 = "#cdd6f4";
 static char selbgcolor[]                 = "#313244";
-static char selbordercolor[]             = "#b4befe";
+static char selbordercolor[]             = "#cdd6f4";
 
 static char titlenormfgcolor[]           = "#cdd6f4";
 static char titlenormbgcolor[]           = "#1e1e2e";
@@ -145,6 +145,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.title = "spterm", .tags = SPTAG(0), .isfloating = 1)
 	RULE(.class = "Nsxiv", .isfloating = 1)
+	RULE(.class = "Steam", .isfloating = 1)
 };
 
 
