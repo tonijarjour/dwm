@@ -15,50 +15,44 @@ static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
-static const char *fonts[]               = { "Liberation Sans:size=12" };
-static const char dmenufont[]            = "Liberation Sans:size=12";
+static const char *fonts[]               = { "Noto Sans:size=12" };
+static const char dmenufont[]            = "Noto Sans:size=12";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#cdd6f4";
 static char normbgcolor[]                = "#1e1e2e";
-static char normbordercolor[]            = "#6c7086";
+static char normbordercolor[]            = "#1e1e2e";
 static char normfloatcolor[]             = "#6c7086";
 
-static char selfgcolor[]                 = "#11111b";
-static char selbgcolor[]                 = "#b4befe";
+static char selfgcolor[]                 = "#cdd6f4";
+static char selbgcolor[]                 = "#313244";
 static char selbordercolor[]             = "#b4befe";
-static char selfloatcolor[]              = "#b4befe";
 
 static char titlenormfgcolor[]           = "#cdd6f4";
 static char titlenormbgcolor[]           = "#1e1e2e";
-static char titlenormbordercolor[]       = "#6c7086";
-static char titlenormfloatcolor[]        = "#6c7086";
+static char titlenormbordercolor[]       = "#1e1e2e";
 
 static char titleselfgcolor[]            = "#cdd6f4";
 static char titleselbgcolor[]            = "#313244";
 static char titleselbordercolor[]        = "#313244";
-static char titleselfloatcolor[]         = "#313244";
 
 static char tagsnormfgcolor[]            = "#cdd6f4";
 static char tagsnormbgcolor[]            = "#1e1e2e";
-static char tagsnormbordercolor[]        = "#6c7086";
-static char tagsnormfloatcolor[]         = "#6c7086";
+static char tagsnormbordercolor[]        = "#1e1e2e";
 
 static char tagsselfgcolor[]             = "#cdd6f4";
 static char tagsselbgcolor[]             = "#313244";
 static char tagsselbordercolor[]         = "#313244";
-static char tagsselfloatcolor[]          = "#313244";
 
-static char hidnormfgcolor[]             = "#b4befe";
-static char hidselfgcolor[]              = "#227799";
+static char hidnormfgcolor[]             = "#6c7086";
+static char hidselfgcolor[]              = "#b4befe";
 static char hidnormbgcolor[]             = "#1e1e2e";
 static char hidselbgcolor[]              = "#1e1e2e";
 
-static char urgfgcolor[]                 = "#cdd6f4";
-static char urgbgcolor[]                 = "#1e1e2e";
-static char urgbordercolor[]             = "#ff0000";
-static char urgfloatcolor[]              = "#6c7086";
+static char urgfgcolor[]                 = "#11111b";
+static char urgbgcolor[]                 = "#fab387";
+static char urgbordercolor[]             = "#fab387";
 
 
 
@@ -66,14 +60,14 @@ static char urgfloatcolor[]              = "#6c7086";
 static char *colors[][ColCount] = {
 	/*                       fg                bg                border                float */
 	[SchemeNorm]         = { normfgcolor,      normbgcolor,      normbordercolor,      normfloatcolor },
-	[SchemeSel]          = { selfgcolor,       selbgcolor,       selbordercolor,       selfloatcolor },
-	[SchemeTitleNorm]    = { titlenormfgcolor, titlenormbgcolor, titlenormbordercolor, titlenormfloatcolor },
-	[SchemeTitleSel]     = { titleselfgcolor,  titleselbgcolor,  titleselbordercolor,  titleselfloatcolor },
-	[SchemeTagsNorm]     = { tagsnormfgcolor,  tagsnormbgcolor,  tagsnormbordercolor,  tagsnormfloatcolor },
-	[SchemeTagsSel]      = { tagsselfgcolor,   tagsselbgcolor,   tagsselbordercolor,   tagsselfloatcolor },
+	[SchemeSel]          = { selfgcolor,       selbgcolor,       selbordercolor,       selbordercolor },
+	[SchemeTitleNorm]    = { titlenormfgcolor, titlenormbgcolor, titlenormbordercolor, titlenormbordercolor },
+	[SchemeTitleSel]     = { titleselfgcolor,  titleselbgcolor,  titleselbordercolor,  titleselbordercolor },
+	[SchemeTagsNorm]     = { tagsnormfgcolor,  tagsnormbgcolor,  tagsnormbordercolor,  tagsnormbordercolor },
+	[SchemeTagsSel]      = { tagsselfgcolor,   tagsselbgcolor,   tagsselbordercolor,   tagsselbordercolor },
 	[SchemeHidNorm]      = { hidnormfgcolor,   hidnormbgcolor,   c000000,              c000000 },
 	[SchemeHidSel]       = { hidselfgcolor,    hidselbgcolor,    c000000,              c000000 },
-	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor },
+	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgbordercolor },
 };
 
 
