@@ -23,7 +23,6 @@ static char c000000[]                    = "#000000"; // placeholder value
 static char normfgcolor[]                = "#cdd6f4";
 static char normbgcolor[]                = "#1e1e2e";
 static char normbordercolor[]            = "#1e1e2e";
-static char normfloatcolor[]             = "#6c7086";
 
 static char selfgcolor[]                 = "#cdd6f4";
 static char selbgcolor[]                 = "#313244";
@@ -59,7 +58,7 @@ static char urgbordercolor[]             = "#fab387";
 
 static char *colors[][ColCount] = {
 	/*                       fg                bg                border                float */
-	[SchemeNorm]         = { normfgcolor,      normbgcolor,      normbordercolor,      normfloatcolor },
+	[SchemeNorm]         = { normfgcolor,      normbgcolor,      normbordercolor,      normbordercolor },
 	[SchemeSel]          = { selfgcolor,       selbgcolor,       selbordercolor,       selbordercolor },
 	[SchemeTitleNorm]    = { titlenormfgcolor, titlenormbgcolor, titlenormbordercolor, titlenormbordercolor },
 	[SchemeTitleSel]     = { titleselfgcolor,  titleselbgcolor,  titleselbordercolor,  titleselbordercolor },
