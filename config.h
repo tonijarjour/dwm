@@ -212,7 +212,7 @@ static const char *dmenucmd[] = {
 	NULL
 };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *brwcmd[] = { "google-chrome-stable", NULL };
+static const char *brwcmd[] = { "google-chrome-stable", "--enable-features=WebUIDarkMode", "--force-dark-mode", NULL };
 static const char *pdfcmd[] = { "zathura", NULL };
 static const char *upvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *dovol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
