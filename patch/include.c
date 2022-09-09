@@ -13,6 +13,7 @@
 
 /* Other patches */
 #include "attachx.c"
+#include "pertag.c"
 #include "scratchpad.c"
 /* Layouts */
 #include "layout_facts.c"

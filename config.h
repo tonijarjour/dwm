@@ -3,9 +3,10 @@
 
 /* appearance */
 static const unsigned int borderpx       = 2;   /* border pixel of windows */
-static const unsigned int snap           = 32;  /* snap pixel */
+static const unsigned int snap           = 24;  /* snap pixel */
 static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
+static const int focusonwheel            = 1;
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
 
@@ -14,9 +15,8 @@ static const int statusmon               = 'A';
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
-static const char *fonts[]               = { "Noto Sans:size=13" };
-static const char dmenufont[]            = "Noto Sans:size=13";
+static const char *fonts[]               = {"Noto Sans:size=13"};
+static const char dmenufont[]            =  "Noto Sans:size=13";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -53,9 +53,6 @@ static char urgfgcolor[]                 = "#11111b";
 static char urgbgcolor[]                 = "#fab387";
 static char urgbordercolor[]             = "#fab387";
 
-
-
-
 static char *colors[][ColCount] = {
 	/*                       fg                bg                border                float */
 	[SchemeNorm]         = { normfgcolor,      normbgcolor,      normbordercolor,      normbordercolor },
@@ -68,9 +65,6 @@ static char *colors[][ColCount] = {
 	[SchemeHidSel]       = { hidselfgcolor,    hidselbgcolor,    c000000,              c000000 },
 	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgbordercolor },
 };
-
-
-
 
 const char *spcmd1[] = {"alacritty", "-t", "spterm", NULL };
 static Sp scratchpads[] = {
@@ -200,10 +194,8 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
 	"dmenu_run",
-	"-m", dmenumon,
 	"-fn", dmenufont,
 	"-nb", normbgcolor,
 	"-nf", normfgcolor,
@@ -211,14 +203,16 @@ static const char *dmenucmd[] = {
 	"-sf", selfgcolor,
 	NULL
 };
-static const char *termcmd[]  = { "alacritty", NULL };
+
 static const char *brwcmd[] = { "google-chrome-stable", "--enable-features=WebUIDarkMode", "--force-dark-mode", NULL };
-static const char *pdfcmd[] = { "zathura", NULL };
 static const char *upvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *dovol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *muvol[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *pdfcmd[] = { "zathura", NULL };
 
-static Key keys[] = {
+
+static const Key keys[] = {
 	/* modifier                     key            function                argument */
   { 0,                  XF86XK_AudioRaiseVolume, spawn,                  {.v = upvol } },
   { 0,                  XF86XK_AudioLowerVolume, spawn,                  {.v = dovol } },
@@ -236,6 +230,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_comma,      setmfact,               {.f = -0.05} },
 	{ MODKEY,                       XK_period,     setmfact,               {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return,     zoom,                   {0} },
+	{ MODKEY|ControlMask,           XK_z,          showhideclient,         {0} },
 	{ MODKEY|ShiftMask,             XK_w,          killclient,             {0} },
 	{ MODKEY|ControlMask,           XK_o,          quit,                   {0} },
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
@@ -261,7 +256,7 @@ static Key keys[] = {
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
-static Button buttons[] = {
+static const Button buttons[] = {
 	/* click                event mask           button          function        argument */
 	{ ClkLtSymbol,          0,                   Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,                   Button3,        setlayout,      {.v = &layouts[2]} },

@@ -13,6 +13,7 @@
 
 /* Other patches */
 #include "attachx.h"
+#include "pertag.h"
 #include "scratchpad.h"
 /* Layouts */
 #include "layout_monocle.h"
