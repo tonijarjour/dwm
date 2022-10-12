@@ -10,6 +10,7 @@ static const int focusonwheel            = 0;
 static const int statusmon               = 'A';
 
 
+
 /* Indicators: see patch/bar_indicators.h for options */
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;

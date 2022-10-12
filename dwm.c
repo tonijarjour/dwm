@@ -637,6 +637,7 @@ cleanup(void)
 
 
 
+
 	selmon->lt[selmon->sellt] = &foo;
 	for (m = mons; m; m = m->next)
 		while (m->stack)
@@ -1362,12 +1363,13 @@ manage(Window w, XWindowAttributes *wa)
 		XSetWindowBorder(dpy, w, scheme[SchemeNorm][ColBorder].pixel);
 	configure(c); /* propagates border_width, if size doesn't change */
 	updatesizehints(c);
-	if (getatomprop(c, netatom[NetWMState], XA_ATOM) == netatom[NetWMFullscreen])
-		setfullscreen(c, 1);
 	updatewmhints(c);
 
 	c->x = c->mon->wx + (c->mon->ww - WIDTH(c)) / 2;
 	c->y = c->mon->wy + (c->mon->wh - HEIGHT(c)) / 2;
+
+	if (getatomprop(c, netatom[NetWMState], XA_ATOM) == netatom[NetWMFullscreen])
+		setfullscreen(c, 1);
 
 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
 	grabbuttons(c, 0);
