@@ -301,6 +301,7 @@ static void killclient(const Arg *arg);
 static void manage(Window w, XWindowAttributes *wa);
 static void mappingnotify(XEvent *e);
 static void maprequest(XEvent *e);
+static void motionnotify(XEvent *e);
 static void movemouse(const Arg *arg);
 static Client *nexttiled(Client *c);
 static void pop(Client *c);
@@ -380,6 +381,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
 	[KeyPress] = keypress,
 	[MappingNotify] = mappingnotify,
 	[MapRequest] = maprequest,
+	[MotionNotify] = motionnotify,
 	[PropertyNotify] = propertynotify,
 	[UnmapNotify] = unmapnotify
 };
@@ -1432,6 +1434,19 @@ maprequest(XEvent *e)
 		manage(ev->window, &wa);
 }
 
+void
+motionnotify(XEvent *e)
+{
+	Bar *bar;
+	XMotionEvent *ev = &e->xmotion;
+
+	if ((bar = wintobar(ev->window))) {
+		barhover(e, bar);
+		return;
+	}
+
+
+}
 
 void
 movemouse(const Arg *arg)
